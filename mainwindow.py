@@ -1,7 +1,8 @@
 from ui.mainwindow import *
 import numpy as np
 import sys
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox, QRadioButton
+import os
+from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox, QRadioButton, QInputDialog
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
@@ -15,7 +16,7 @@ from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as Navigatio
 from TFunction import TFunction
 from PyQt5 import QtGui, QtWidgets
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
     def __init__(self, *args, **kwargs):
         QtWidgets.QMainWindow.__init__(self, *args, **kwargs)
         self.setupUi(self)
@@ -70,7 +71,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # Clickeables
         self.saveamp.clicked.connect(self.saveAmplitudePlot)
         self.savephase.clicked.connect(self.savePhasePlot)
-        self.saveboth.clicked.connect(self.saveFullPlot)
         self.checkf1.clicked.connect(self.updatePlots)
         self.checkf2.clicked.connect(self.updatePlots)
         self.checkf3.clicked.connect(self.updatePlots)
@@ -81,14 +81,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.checkp3.clicked.connect(self.updatePlots)
         self.checkp4.clicked.connect(self.updatePlots)
         self.checkp5.clicked.connect(self.updatePlots)
+        #self.xlabeledit.textChanged.connect(self.updatePlots)
+        #self.ylabeledit.textChanged.connect(self.updatePlots)
 
     # Amplitude Plot
         self.figure1 = Figure()
         self.canvas1 = FigureCanvas(self.figure1)
-        self.axes1 = self.figure1.add_subplot()
-        self.toolbar1 = NavigationToolbar(self.canvas1, self)
+        self.axes1 = self.figure1.subplots()
+        #self.toolbar1 = NavigationToolbar(self.canvas1, self)
         self.layout1 = QtWidgets.QVBoxLayout()
-        self.layout1.addWidget(self.toolbar1)
+        #self.layout1.addWidget(self.toolbar1)
         self.layout1.addWidget(self.canvas1)
         canvas_index1 = self.ampplot.addWidget(self.canvas1)
         self.ampplot.setCurrentIndex(canvas_index1)
@@ -96,13 +98,16 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     # Phase Plot
         self.figure2 = Figure()
         self.canvas2 = FigureCanvas(self.figure2)
-        self.axes2 = self.figure2.add_subplot()
-        self.toolbar2 = NavigationToolbar(self.canvas2, self)
+        self.axes2 = self.figure2.subplots()
+        #self.toolbar2 = NavigationToolbar(self.canvas2, self)
         self.layout2 = QtWidgets.QVBoxLayout()
-        self.layout2.addWidget(self.toolbar2)
+        #self.layout2.addWidget(self.toolbar2)
         self.layout2.addWidget(self.canvas2)
         canvas_index2 = self.phaseplot.addWidget(self.canvas2)
         self.phaseplot.setCurrentIndex(canvas_index2)
+        self.axes2.plot([0, 1, 2, 3], [0, 1, 4, 9])
+
+        self.updatePlots()
 
     ####Funciones
 
@@ -207,15 +212,41 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     ###Frame Plots
     def saveAmplitudePlot(self):
-        # TO-DO
-        return
+        index = 0
+        filename = self.filenameedit.text()
+        while os.path.exists(filename + "_amplitud" + str(index) + ".png"):
+            index += 1
+        self.figure2.savefig(filename + "_amplitud" + str(index) + ".png")
+        msg = QMessageBox()
+        msg.setWindowTitle("Confirmación")
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("Gráfico exportado con el nombre: " + filename + "_amplitud" + str(index) + ".png")
+        x = msg.exec_()
+
     def savePhasePlot(self):
-        # TO-DO
-        return
+        index = 0
+        filename = self.filenameedit.text()
+        while os.path.exists(filename+"_fase"+str(index)+".png"):
+            index += 1
+        self.figure2.savefig(filename+"_fase"+str(index)+".png")
+        msg = QInputDialog()
+        msg.setIcon(QMessageBox.Information)
+        filename = msg.getText(self, 'Exportar gráfico', 'Nombre de archivo:')
+
+        '''msg = QMessageBox()
+        msg.setWindowTitle("Confirmación")
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("Gráfico exportado con el nombre: "+ filename+"_fase"+str(index)+".png")
+        x = msg.exec_()'''
+
     def saveFullPlot(self):
         # TO-DO
         return
+
     def updatePlots(self):
+        self.axes1.plot([0, 1], [1, 2])
+        self.axes1.set_xlabel('f (log) [Hz]')
+        self.canvas1.draw()
         # TO-DO
         return
 

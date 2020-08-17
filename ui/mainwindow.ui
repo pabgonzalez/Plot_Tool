@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>PlotTool</class>
+ <widget class="QMainWindow" name="PlotTool">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -354,7 +354,7 @@
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="numerator">
+    <widget class="QLabel" name="numlabel">
      <property name="geometry">
       <rect>
        <x>315</x>
@@ -366,7 +366,7 @@
      <property name="font">
       <font>
        <family>Cambria Math</family>
-       <pointsize>16</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -402,6 +402,9 @@
      <property name="checked">
       <bool>true</bool>
      </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_2</string>
+     </attribute>
     </widget>
     <widget class="QRadioButton" name="transferf3">
      <property name="geometry">
@@ -429,6 +432,9 @@
      <property name="checked">
       <bool>false</bool>
      </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_2</string>
+     </attribute>
     </widget>
     <widget class="QRadioButton" name="transferf2">
      <property name="geometry">
@@ -456,90 +462,11 @@
      <property name="checked">
       <bool>false</bool>
      </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_2</string>
+     </attribute>
     </widget>
-    <widget class="QTextEdit" name="coefvalue">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>80</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::Box</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="lineWrapMode">
-      <enum>QTextEdit::NoWrap</enum>
-     </property>
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="coeforder">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>80</y>
-       <width>51</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhDigitsOnly</set>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::Box</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="horizontalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOff</enum>
-     </property>
-     <property name="lineWrapMode">
-      <enum>QTextEdit::NoWrap</enum>
-     </property>
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;0&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="denominator">
+    <widget class="QLabel" name="denlabel">
      <property name="geometry">
       <rect>
        <x>315</x>
@@ -551,7 +478,7 @@ p, li { white-space: pre-wrap; }
      <property name="font">
       <font>
        <family>Cambria Math</family>
-       <pointsize>16</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -653,6 +580,9 @@ p, li { white-space: pre-wrap; }
      <property name="checked">
       <bool>false</bool>
      </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_2</string>
+     </attribute>
     </widget>
     <widget class="QRadioButton" name="transferf5">
      <property name="geometry">
@@ -680,6 +610,9 @@ p, li { white-space: pre-wrap; }
      <property name="checked">
       <bool>false</bool>
      </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup_2</string>
+     </attribute>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -727,8 +660,8 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>120</y>
-       <width>161</width>
+       <y>110</y>
+       <width>81</width>
        <height>31</height>
       </rect>
      </property>
@@ -744,7 +677,7 @@ p, li { white-space: pre-wrap; }
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Agregar coeficiente</string>
+      <string>Agregar</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -755,6 +688,110 @@ p, li { white-space: pre-wrap; }
      <property name="flat">
       <bool>false</bool>
      </property>
+    </widget>
+    <widget class="QLineEdit" name="coeforder">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>70</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhFormattedNumbersOnly</set>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="coefvalue">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>70</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhFormattedNumbersOnly</set>
+     </property>
+     <property name="text">
+      <string>0</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="checknumerator">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>110</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Numer.</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="checkdenominator">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>130</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Denom.</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">buttonGroup</string>
+     </attribute>
     </widget>
    </widget>
    <widget class="QFrame" name="frameplotconfig">
@@ -775,7 +812,7 @@ p, li { white-space: pre-wrap; }
     <property name="lineWidth">
      <number>3</number>
     </property>
-    <widget class="QLabel" name="importlabel_2">
+    <widget class="QLabel" name="plotlabel">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -797,9 +834,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="saveamp">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>40</y>
-       <width>151</width>
+       <x>370</x>
+       <y>70</y>
+       <width>81</width>
        <height>31</height>
       </rect>
      </property>
@@ -815,7 +852,7 @@ p, li { white-space: pre-wrap; }
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Gráfico de amplitud</string>
+      <string>Amplitud</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -830,9 +867,9 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="savephase">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>80</y>
-       <width>151</width>
+       <x>370</x>
+       <y>110</y>
+       <width>81</width>
        <height>31</height>
       </rect>
      </property>
@@ -848,7 +885,7 @@ p, li { white-space: pre-wrap; }
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Gráfico de fase</string>
+      <string>Fase</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -860,45 +897,12 @@ p, li { white-space: pre-wrap; }
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="saveboth">
+    <widget class="QLabel" name="exportlabel">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>120</y>
-       <width>151</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 235, 235);
- border-style: solid;
- border-width:5px;
- border-color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>Gráfico completo</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="importlabel_3">
-     <property name="geometry">
-      <rect>
-       <x>300</x>
+       <x>370</x>
        <y>10</y>
-       <width>151</width>
+       <width>81</width>
        <height>21</height>
       </rect>
      </property>
@@ -909,7 +913,7 @@ p, li { white-space: pre-wrap; }
       </font>
      </property>
      <property name="text">
-      <string>Exportar imagen</string>
+      <string>Exportar</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1005,12 +1009,12 @@ p, li { white-space: pre-wrap; }
       <string>Ver Función 2</string>
      </property>
     </widget>
-    <widget class="QLabel" name="importlabel_4">
+    <widget class="QLabel" name="pointslabel">
      <property name="geometry">
       <rect>
-       <x>160</x>
+       <x>150</x>
        <y>30</y>
-       <width>51</width>
+       <width>31</width>
        <height>21</height>
       </rect>
      </property>
@@ -1021,13 +1025,13 @@ p, li { white-space: pre-wrap; }
       </font>
      </property>
      <property name="text">
-      <string>Puntos</string>
+      <string>Pts</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp1">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>50</y>
        <width>16</width>
        <height>23</height>
@@ -1045,7 +1049,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QCheckBox" name="checkp2">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>70</y>
        <width>16</width>
        <height>23</height>
@@ -1063,7 +1067,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QCheckBox" name="checkp3">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>90</y>
        <width>16</width>
        <height>23</height>
@@ -1081,7 +1085,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QCheckBox" name="checkp4">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>110</y>
        <width>16</width>
        <height>23</height>
@@ -1099,7 +1103,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QCheckBox" name="checkp5">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>150</x>
        <y>130</y>
        <width>16</width>
        <height>23</height>
@@ -1114,10 +1118,10 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
     </widget>
-    <widget class="QLabel" name="importlabel_6">
+    <widget class="QLabel" name="originlabel">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>180</x>
        <y>30</y>
        <width>71</width>
        <height>21</height>
@@ -1139,7 +1143,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="origin1">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>180</x>
        <y>50</y>
        <width>71</width>
        <height>16</height>
@@ -1160,7 +1164,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="origin2">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>180</x>
        <y>70</y>
        <width>71</width>
        <height>16</height>
@@ -1181,7 +1185,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="origin3">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>180</x>
        <y>90</y>
        <width>71</width>
        <height>16</height>
@@ -1202,7 +1206,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="origin4">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>180</x>
        <y>110</y>
        <width>71</width>
        <height>16</height>
@@ -1223,7 +1227,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QLabel" name="origin5">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>180</x>
        <y>130</y>
        <width>71</width>
        <height>16</height>
@@ -1239,6 +1243,28 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="filenameedit">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>40</y>
+       <width>81</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="inputMethodHints">
+      <set>Qt::ImhNone</set>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string>filename</string>
      </property>
     </widget>
    </widget>
@@ -1260,33 +1286,521 @@ p, li { white-space: pre-wrap; }
     <property name="lineWidth">
      <number>3</number>
     </property>
-    <widget class="QWidget" name="ampplot" native="true">
+    <widget class="QStackedWidget" name="ampplot">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>611</width>
+       <width>561</width>
        <height>491</height>
       </rect>
      </property>
+     <widget class="QWidget" name="ampplotPage1" native="true"/>
     </widget>
-    <widget class="QWidget" name="phaseplot" native="true">
+    <widget class="QStackedWidget" name="phaseplot">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>580</x>
        <y>10</y>
-       <width>611</width>
+       <width>561</width>
        <height>491</height>
       </rect>
      </property>
+     <widget class="QWidget" name="phaseplotPage1" native="true"/>
+    </widget>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>1160</x>
+       <y>10</y>
+       <width>91</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="lineWidth">
+      <number>2</number>
+     </property>
+     <widget class="QLabel" name="axrangelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Amp. x range</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="axmin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editaylabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>330</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>| H(s) |</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editaxlabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>f [Hz]</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fxlabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>358</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Fase x label</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fxmin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>130</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="aylabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>308</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Amp. y label</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fxrangelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Fase x range</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="aymax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>80</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ayrangelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Amp. y range</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fyrangelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Fase y range</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fymax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>180</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="axlabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>258</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Amp. x label</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="axmax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editfylabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>430</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Grados</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fxmax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>130</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="editfxlabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>f [Hz]</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fymin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>180</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="aymin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fylabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>408</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Fase y label</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="titlelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>208</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Título</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="edittitle">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>f [Hz]</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="updatebtn">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>460</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(235, 235, 235);
+ border-style: solid;
+ border-width:5px;
+ border-color: rgb(220, 220, 220);</string>
+      </property>
+      <property name="text">
+       <string>Actualizar</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
    </widget>
-   <zorder>frameplotconfig</zorder>
    <zorder>frametransfer</zorder>
    <zorder>frameimport</zorder>
    <zorder>frameplot</zorder>
+   <zorder>frameplotconfig</zorder>
   </widget>
  </widget>
  <resources/>
  <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_2"/>
+ </buttongroups>
 </ui>
