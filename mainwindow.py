@@ -22,7 +22,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.setupUi(self)
 
     ###Funciones
-        functionList = [TFunction() for x in range(5)]
+        self.functionList = [TFunction(), TFunction(), TFunction(), TFunction(), TFunction()]
 
     ###Frame Import Function
         #Variables
@@ -71,8 +71,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         # Clickeables
         self.saveamp.clicked.connect(self.saveAmplitudePlot)
         self.savephase.clicked.connect(self.savePhasePlot)
-        self.resetview.clicked.connect(self.resetView)
-        self.checkf1.clicked.connect(self.updatePlots)
+        self.updatebtn1.clicked.connect(self.updatePlots)
+        '''self.checkf1.clicked.connect(self.updatePlots)
         self.checkf2.clicked.connect(self.updatePlots)
         self.checkf3.clicked.connect(self.updatePlots)
         self.checkf4.clicked.connect(self.updatePlots)
@@ -82,9 +82,19 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.checkp3.clicked.connect(self.updatePlots)
         self.checkp4.clicked.connect(self.updatePlots)
         self.checkp5.clicked.connect(self.updatePlots)
+        self.nogrid.clicked.connect(self.updatePlots)
+        self.simplegrid.clicked.connect(self.updatePlots)
+        self.fullgrid.clicked.connect(self.updatePlots)'''
 
     # Plot configurations
-        self.updatebtn.clicked.connect(self.updatePlots)
+        self.axmin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.axmax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.aymin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.aymax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.fymin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.fymax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.updatebtn2.clicked.connect(self.updatePlots)
+        self.resetview.clicked.connect(self.resetView)
 
     # Amplitude Plot
         self.figure1 = Figure()
@@ -96,6 +106,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.layout1.addWidget(self.canvas1)
         canvas_index1 = self.ampplot.addWidget(self.canvas1)
         self.ampplot.setCurrentIndex(canvas_index1)
+        self.axes1.set_xscale('log')
+        self.axes1.set_yscale('log')
 
     # Phase Plot
         self.figure2 = Figure()
@@ -107,6 +119,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.layout2.addWidget(self.canvas2)
         canvas_index2 = self.phaseplot.addWidget(self.canvas2)
         self.phaseplot.setCurrentIndex(canvas_index2)
+        self.axes2.set_xscale('log')
+
+        self.axes1.plot([0, 1, 2, 3], [0, 1, 4, 9])
         self.axes2.plot([0, 1, 2, 3], [0, 1, 4, 9])
 
         self.updatePlots()
@@ -117,15 +132,30 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
 
     def importSpice(self):
         #TO-DO
-        return
+
+        self.origin1.setText(self.functionList[0].origin)
+        self.origin2.setText(self.functionList[1].origin)
+        self.origin3.setText(self.functionList[2].origin)
+        self.origin4.setText(self.functionList[3].origin)
+        self.origin5.setText(self.functionList[4].origin)
 
     def importDigilent(self):
         # TO-DO
-        return
+
+        self.origin1.setText(self.functionList[0].origin)
+        self.origin2.setText(self.functionList[1].origin)
+        self.origin3.setText(self.functionList[2].origin)
+        self.origin4.setText(self.functionList[3].origin)
+        self.origin5.setText(self.functionList[4].origin)
 
     def importCSV(self):
         # TO-DO
-        return
+
+        self.origin1.setText(self.functionList[0].origin)
+        self.origin2.setText(self.functionList[1].origin)
+        self.origin3.setText(self.functionList[2].origin)
+        self.origin4.setText(self.functionList[3].origin)
+        self.origin5.setText(self.functionList[4].origin)
 
     def selectImportFunction(self, x):
         self.importf1.setChecked( x==0 )
@@ -142,6 +172,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.transferf3.setChecked( x==2 )
         self.transferf4.setChecked( x==3 )
         self.transferf5.setChecked( x==4 )
+        self.numerator = self.functionList[x].num
+        self.denominator = self.functionList[x].den
         self.updateEquationLabel()
 
     def selectNumerator(self):
@@ -173,11 +205,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         coefsden = 1
 
         for i in range(1, len(self.numerator)):
-            if abs(self.numerator[i]) > 1e-10:
+            if abs(self.numerator[i]) > 1e-20:
                 coefsnum += 1
                 numeratorstr = str(self.numerator[i]) + "·s" + self.exponentString(i) + "+" + numeratorstr
         for i in range(1, len(self.denominator)):
-            if abs(self.denominator[i]) > 1e-10:
+            if abs(self.denominator[i]) > 1e-20:
                 coefsden += 1
                 denominatorstr = str(self.denominator[i]) + "·s" + self.exponentString(i) + " + " + denominatorstr
         self.numlabel.setText(numeratorstr)
@@ -205,12 +237,48 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         return expstr
 
     def acceptEquation(self):
-        # TO-DO
-        return
+        index = 0
+        index = 1 if self.transferf2.isChecked() else index
+        index = 2 if self.transferf3.isChecked() else index
+        index = 3 if self.transferf4.isChecked() else index
+        index = 4 if self.transferf5.isChecked() else index
+
+        nonzero = False
+        for c in self.denominator:
+            if abs(c) > 1e-20:
+                nonzero = True
+
+        if nonzero:
+            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')
+            if len(name) < 1:
+                name = "Función " + str(index+1)
+            self.functionList[index].setEquation(self.numerator, self.denominator, name)
+            self.origin1.setText(self.functionList[0].origin)
+            self.origin2.setText(self.functionList[1].origin)
+            self.origin3.setText(self.functionList[2].origin)
+            self.origin4.setText(self.functionList[3].origin)
+            self.origin5.setText(self.functionList[4].origin)
+        else:
+            msgBox = QMessageBox()
+            msgBox.setIcon(QMessageBox.Warning)
+            msgBox.setText("El denominador debe ser distinto de cero")
+            msgBox.setWindowTitle("Advertencia")
+            x = msgBox.exec()
 
     def eraseEquation(self):
-        # TO-DO
-        return
+        index = 0
+        index = 1 if self.transferf2.isChecked() else index
+        index = 2 if self.transferf3.isChecked() else index
+        index = 3 if self.transferf4.isChecked() else index
+        index = 4 if self.transferf5.isChecked() else index
+        self.numerator = [0]
+        self.denominator = [0]
+        self.functionList[index].eraseEquation()
+        self.origin1.setText(self.functionList[0].origin)
+        self.origin2.setText(self.functionList[1].origin)
+        self.origin3.setText(self.functionList[2].origin)
+        self.origin4.setText(self.functionList[3].origin)
+        self.origin5.setText(self.functionList[4].origin)
 
     ###Frame Plots
     def saveAmplitudePlot(self):
@@ -254,9 +322,37 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.axes2.set_xlabel(self.editfxlabel.text())
         self.axes2.set_ylabel(self.editfylabel.text())
         self.axes2.set_title(self.edittitle.text())
-        self.axes2.set_xlim(float(self.fxmin.text()), float(self.fxmax.text()))
+        self.axes2.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
         self.axes2.set_ylim(float(self.fymin.text()), float(self.fymax.text()))
-        # TO-DO
+        # TO-DO: Plotting
+        self.axes1.clear()
+        self.axes2.clear()
+        for f in self.functionList:
+            if f.origin == "Ecuación":
+                H = signal.TransferFunction(f.num[::-1], f.den[::-1])
+                x = logspace(floor(log10(float(self.axmin.text()))), floor(log10(float(self.axmax.text()))), num=1000)
+                Bode = signal.bode(H, x)
+                freq = Bode[0] / (2 * np.pi)
+                self.axes1.loglog(freq, Bode[1], label=str(f.name))
+                self.axes2.semilogx(freq, Bode[2], label=str(f.name))
+            if f.origin == "Spice":
+                pass
+            if f.origin == "Digilent":
+                pass
+            if f.origin == "CSV":
+                pass
+
+        self.axes1.grid(False, which='both')
+        self.axes2.grid(False, which='both')
+        if self.simplegrid.isChecked():
+            self.axes1.grid(True, which='major')
+            self.axes2.grid(True, which='major')
+        if self.fullgrid.isChecked():
+            self.axes1.grid(True, which='both')
+            self.axes2.grid(True, which='both')
+
+        self.axes1.legend()
+        self.axes2.legend()
         self.canvas1.draw()
         self.canvas2.draw()
 

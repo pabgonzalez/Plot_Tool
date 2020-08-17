@@ -834,15 +834,15 @@
     <widget class="QPushButton" name="saveamp">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>40</y>
-       <width>151</width>
+       <x>380</x>
+       <y>80</y>
+       <width>71</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -852,7 +852,7 @@
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Exportar Amplitud</string>
+      <string>Amplitud</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -867,15 +867,15 @@
     <widget class="QPushButton" name="savephase">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>80</y>
-       <width>151</width>
+       <x>380</x>
+       <y>120</y>
+       <width>71</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -885,7 +885,7 @@
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Exportar Fase</string>
+      <string>Fase</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -900,9 +900,9 @@
     <widget class="QLabel" name="exportlabel">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>10</y>
-       <width>61</width>
+       <x>380</x>
+       <y>20</y>
+       <width>71</width>
        <height>21</height>
       </rect>
      </property>
@@ -913,7 +913,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Archivo:</string>
+      <string>Exportar</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -930,7 +930,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -948,7 +948,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -966,7 +966,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -984,7 +984,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -1002,7 +1002,7 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -1012,7 +1012,7 @@
     <widget class="QLabel" name="pointslabel">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>140</x>
        <y>30</y>
        <width>51</width>
        <height>21</height>
@@ -1034,7 +1034,7 @@
     <widget class="QCheckBox" name="checkp1">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>50</y>
        <width>16</width>
        <height>23</height>
@@ -1052,7 +1052,7 @@
     <widget class="QCheckBox" name="checkp2">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>70</y>
        <width>16</width>
        <height>23</height>
@@ -1070,7 +1070,7 @@
     <widget class="QCheckBox" name="checkp3">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>90</y>
        <width>16</width>
        <height>23</height>
@@ -1088,7 +1088,7 @@
     <widget class="QCheckBox" name="checkp4">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>110</y>
        <width>16</width>
        <height>23</height>
@@ -1106,7 +1106,7 @@
     <widget class="QCheckBox" name="checkp5">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>160</x>
        <y>130</y>
        <width>16</width>
        <height>23</height>
@@ -1124,7 +1124,7 @@
     <widget class="QLabel" name="originlabel">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>30</y>
        <width>71</width>
        <height>21</height>
@@ -1146,7 +1146,7 @@
     <widget class="QLabel" name="origin1">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>50</y>
        <width>71</width>
        <height>16</height>
@@ -1154,11 +1154,11 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Ecuación</string>
+      <string>Vacío</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1167,7 +1167,7 @@
     <widget class="QLabel" name="origin2">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>70</y>
        <width>71</width>
        <height>16</height>
@@ -1175,11 +1175,11 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Ecuación</string>
+      <string>Vacío</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1188,7 +1188,7 @@
     <widget class="QLabel" name="origin3">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>90</y>
        <width>71</width>
        <height>16</height>
@@ -1196,11 +1196,11 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Ecuación</string>
+      <string>Vacío</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1209,7 +1209,7 @@
     <widget class="QLabel" name="origin4">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>110</y>
        <width>71</width>
        <height>16</height>
@@ -1217,11 +1217,11 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Ecuación</string>
+      <string>Vacío</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1230,7 +1230,7 @@
     <widget class="QLabel" name="origin5">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>200</x>
        <y>130</y>
        <width>71</width>
        <height>16</height>
@@ -1238,11 +1238,11 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
-      <string>Ecuación</string>
+      <string>Vacío</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1251,9 +1251,9 @@
     <widget class="QLineEdit" name="filenameedit">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>10</y>
-       <width>81</width>
+       <x>380</x>
+       <y>50</y>
+       <width>71</width>
        <height>20</height>
       </rect>
      </property>
@@ -1270,18 +1270,100 @@
       <string>filename</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="resetview">
+    <widget class="QRadioButton" name="nogrid">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>120</y>
-       <width>151</width>
-       <height>31</height>
+       <x>280</x>
+       <y>50</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Nada</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="simplegrid">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>70</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Simple</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="fullgrid">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>90</y>
+       <width>81</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Completa</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="originlabel_2">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>30</y>
+       <width>41</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <pointsize>12</pointsize>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>Grilla</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="updatebtn1">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>120</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -1291,7 +1373,7 @@
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Reset</string>
+      <string>Actualizar</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -1331,7 +1413,7 @@
        <height>491</height>
       </rect>
      </property>
-     <widget class="QWidget" name="ampplotPage1" native="true"/>
+     <widget class="QWidget" name="ampplotPage1"/>
     </widget>
     <widget class="QStackedWidget" name="phaseplot">
      <property name="geometry">
@@ -1342,7 +1424,7 @@
        <height>491</height>
       </rect>
      </property>
-     <widget class="QWidget" name="phaseplotPage1" native="true"/>
+     <widget class="QWidget" name="phaseplotPage1"/>
     </widget>
     <widget class="QFrame" name="frame">
      <property name="geometry">
@@ -1378,7 +1460,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Amp. x range</string>
+       <string>Rango frec.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1397,7 +1479,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>1e0</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1407,7 +1489,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>330</y>
+        <y>280</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1423,7 +1505,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>280</y>
+        <y>230</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1439,7 +1521,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>358</y>
+        <y>308</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1457,30 +1539,11 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLineEdit" name="fxmin">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>130</y>
-        <width>41</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="inputMethodHints">
-       <set>Qt::ImhFormattedNumbersOnly</set>
-      </property>
-      <property name="text">
-       <string>1</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
      <widget class="QLabel" name="aylabel">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>308</y>
+        <y>258</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1493,28 +1556,6 @@
       </property>
       <property name="text">
        <string>Amp. y label</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="fxrangelabel">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>110</y>
-        <width>81</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>10</pointsize>
-        <underline>false</underline>
-       </font>
-      </property>
-      <property name="text">
-       <string>Fase x range</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1533,7 +1574,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>100</string>
+       <string>1e2</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1555,7 +1596,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Amp. y range</string>
+       <string>Rango amp.</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1565,7 +1606,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>160</y>
+        <y>110</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1577,7 +1618,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Fase y range</string>
+       <string>Rango fase</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1587,7 +1628,7 @@
       <property name="geometry">
        <rect>
         <x>50</x>
-        <y>180</y>
+        <y>130</y>
         <width>41</width>
         <height>21</height>
        </rect>
@@ -1606,7 +1647,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>258</y>
+        <y>208</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1647,7 +1688,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>430</y>
+        <y>380</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1659,30 +1700,11 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLineEdit" name="fxmax">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>130</y>
-        <width>41</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="inputMethodHints">
-       <set>Qt::ImhFormattedNumbersOnly</set>
-      </property>
-      <property name="text">
-       <string>1e6</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
      <widget class="QLineEdit" name="editfxlabel">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>380</y>
+        <y>330</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1698,7 +1720,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>180</y>
+        <y>130</y>
         <width>41</width>
         <height>21</height>
        </rect>
@@ -1726,7 +1748,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>-100</string>
+       <string>1e-2</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1736,7 +1758,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>408</y>
+        <y>358</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1758,7 +1780,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>208</y>
+        <y>158</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1780,7 +1802,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>230</y>
+        <y>180</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1792,11 +1814,11 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="updatebtn">
+     <widget class="QPushButton" name="updatebtn2">
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>460</y>
+        <y>420</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -1825,6 +1847,39 @@
        <bool>false</bool>
       </property>
      </widget>
+     <widget class="QPushButton" name="resetview">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>460</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(235, 235, 235);
+ border-style: solid;
+ border-width:5px;
+ border-color: rgb(220, 220, 220);</string>
+      </property>
+      <property name="text">
+       <string>Reset</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
     </widget>
    </widget>
    <zorder>frametransfer</zorder>
@@ -1836,7 +1891,7 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup"/>
   <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup"/>
  </buttongroups>
 </ui>
