@@ -46,7 +46,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.updateEquationLabel()
 
         #Validación de coeficiente
-        self.coefvalue.setValidator(QtGui.QDoubleValidator(-10e12, 10e12, 8, self))
+        self.coefvalue.setValidator(QtGui.QDoubleValidator(-10e16, 10e16, 8, self))
         self.coeforder.setValidator(QtGui.QIntValidator(0, 100, self))
 
         #Clickeables
@@ -91,8 +91,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.axmax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
         self.aymin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
         self.aymax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
-        self.fymin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
-        self.fymax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.fymin.setValidator(QtGui.QIntValidator(-1000, 1000, self))
+        self.fymax.setValidator(QtGui.QIntValidator(-1000, 1000, self))
         self.updatebtn2.clicked.connect(self.updatePlots)
         self.resetview.clicked.connect(self.resetView)
 
@@ -253,17 +253,36 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
             if len(name) < 1:
                 name = "Función " + str(index+1)
             self.functionList[index].setEquation(self.numerator, self.denominator, name)
-            self.origin1.setText(self.functionList[0].origin)
-            self.origin2.setText(self.functionList[1].origin)
-            self.origin3.setText(self.functionList[2].origin)
-            self.origin4.setText(self.functionList[3].origin)
-            self.origin5.setText(self.functionList[4].origin)
+            self.updateEquationList()
+            self.checkf1.setChecked(True if self.transferf1.isChecked() else self.checkf1.isChecked())
+            self.checkf2.setChecked(True if self.transferf2.isChecked() else self.checkf2.isChecked())
+            self.checkf3.setChecked(True if self.transferf3.isChecked() else self.checkf3.isChecked())
+            self.checkf4.setChecked(True if self.transferf4.isChecked() else self.checkf4.isChecked())
+            self.checkf5.setChecked(True if self.transferf5.isChecked() else self.checkf5.isChecked())
+            self.updatePlots()
         else:
             msgBox = QMessageBox()
             msgBox.setIcon(QMessageBox.Warning)
             msgBox.setText("El denominador debe ser distinto de cero")
             msgBox.setWindowTitle("Advertencia")
             x = msgBox.exec()
+
+    def updateEquationList(self):
+        self.origin1.setText(self.functionList[0].origin)
+        self.origin2.setText(self.functionList[1].origin)
+        self.origin3.setText(self.functionList[2].origin)
+        self.origin4.setText(self.functionList[3].origin)
+        self.origin5.setText(self.functionList[4].origin)
+        self.checkf1.setEnabled(self.functionList[0].origin != 'Vacío')
+        self.checkf2.setEnabled(self.functionList[1].origin != 'Vacío')
+        self.checkf3.setEnabled(self.functionList[2].origin != 'Vacío')
+        self.checkf4.setEnabled(self.functionList[3].origin != 'Vacío')
+        self.checkf5.setEnabled(self.functionList[4].origin != 'Vacío')
+        self.checkp1.setEnabled(self.functionList[0].origin != 'Ecuación' and self.checkf1.isEnabled())
+        self.checkp2.setEnabled(self.functionList[1].origin != 'Ecuación' and self.checkf2.isEnabled())
+        self.checkp3.setEnabled(self.functionList[2].origin != 'Ecuación' and self.checkf3.isEnabled())
+        self.checkp4.setEnabled(self.functionList[3].origin != 'Ecuación' and self.checkf4.isEnabled())
+        self.checkp5.setEnabled(self.functionList[4].origin != 'Ecuación' and self.checkf5.isEnabled())
 
     def eraseEquation(self):
         index = 0
@@ -299,48 +318,63 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         while os.path.exists(filename+"_fase"+str(index)+".png"):
             index += 1
         self.figure2.savefig(filename+"_fase"+str(index)+".png")
-        msg = QInputDialog()
-        msg.setIcon(QMessageBox.Information)
-        filename = msg.getText(self, 'Exportar gráfico', 'Nombre de archivo:')
-
-        '''msg = QMessageBox()
+        msg = QMessageBox()
         msg.setWindowTitle("Confirmación")
         msg.setIcon(QMessageBox.Information)
         msg.setText("Gráfico exportado con el nombre: "+ filename+"_fase"+str(index)+".png")
-        x = msg.exec_()'''
+        x = msg.exec_()
 
     def resetView(self):
-        # TO-DO
-        return
+        self.updatePlots(reset=True)
 
     def updatePlots(self):
+        self.axes1.clear()
+        self.axes2.clear()
+        fview = [self.checkf1.isChecked(), self.checkf2.isChecked(), self.checkf3.isChecked(), self.checkf4.isChecked(), self.checkf5.isChecked()]
+        pview = [self.checkp1.isChecked(), self.checkp2.isChecked(), self.checkp3.isChecked(), self.checkp4.isChecked(), self.checkp5.isChecked()]
+        for i in range(len(self.functionList)):
+            if fview[i]:
+                f = self.functionList[i]
+                if f.origin == "Ecuación":
+                    H = signal.TransferFunction(f.num[::-1], f.den[::-1])
+                    x = logspace(floor(log10(float(self.axmin.text()))), floor(log10(float(self.axmax.text()))), num=1000)
+                    Bode = signal.bode(H, x)
+                    freq = Bode[0] / (2 * np.pi)
+                    markerstyle = 'D' if pview[i] else ""
+                    self.axes1.loglog(freq, Bode[1], label=str(f.name), marker=markerstyle)
+                    self.axes2.semilogx(freq, Bode[2], label=str(f.name), marker=markerstyle)
+                if f.origin == "Spice":
+                    pass
+                if f.origin == "Digilent":
+                    pass
+                if f.origin == "CSV":
+                    pass
+
+        '''if reset:
+            left, right = self.axes1.xlim()
+            self.axmin.setText(str(left))
+            self.axmax.setText(str(right))
+            left, right = self.axes1.ylim()
+            self.aymin.setText(str(left))
+            self.aymax.setText(str(right))
+            left, right = self.axes2.xlim()
+            self.fxmin.setText(str(left))
+            self.fxmax.setText(str(right))
+            left, right = self.axes2.ylim()
+            self.fymin.setText(str(left))
+            self.fymax.setText(str(right))
+        else:'''
+        self.axes1.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
+        self.axes1.set_ylim(float(self.aymin.text()), float(self.aymax.text()))
+        self.axes2.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
+        self.axes2.set_ylim(float(self.fymin.text()), float(self.fymax.text()))
+
         self.axes1.set_xlabel(self.editaxlabel.text())
         self.axes1.set_ylabel(self.editaylabel.text())
         self.axes1.set_title(self.edittitle.text())
-        self.axes1.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
-        self.axes1.set_ylim(float(self.aymin.text()), float(self.aymax.text()))
         self.axes2.set_xlabel(self.editfxlabel.text())
         self.axes2.set_ylabel(self.editfylabel.text())
         self.axes2.set_title(self.edittitle.text())
-        self.axes2.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
-        self.axes2.set_ylim(float(self.fymin.text()), float(self.fymax.text()))
-        # TO-DO: Plotting
-        self.axes1.clear()
-        self.axes2.clear()
-        for f in self.functionList:
-            if f.origin == "Ecuación":
-                H = signal.TransferFunction(f.num[::-1], f.den[::-1])
-                x = logspace(floor(log10(float(self.axmin.text()))), floor(log10(float(self.axmax.text()))), num=1000)
-                Bode = signal.bode(H, x)
-                freq = Bode[0] / (2 * np.pi)
-                self.axes1.loglog(freq, Bode[1], label=str(f.name))
-                self.axes2.semilogx(freq, Bode[2], label=str(f.name))
-            if f.origin == "Spice":
-                pass
-            if f.origin == "Digilent":
-                pass
-            if f.origin == "CSV":
-                pass
 
         self.axes1.grid(False, which='both')
         self.axes2.grid(False, which='both')

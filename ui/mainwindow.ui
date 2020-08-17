@@ -1574,7 +1574,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1e2</string>
+       <string>1e6</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1637,7 +1637,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>180</string>
+       <string>200</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1729,7 +1729,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>-180</string>
+       <string>-200</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1748,7 +1748,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1e-2</string>
+       <string>1e-6</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
