@@ -124,6 +124,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.axes1.plot([0, 1, 2, 3], [0, 1, 4, 9])
         self.axes2.plot([0, 1, 2, 3], [0, 1, 4, 9])
 
+        self.updateEquationLabel()
+        self.updateEquationList()
         self.updatePlots()
 
     ####Funciones

@@ -370,7 +370,7 @@
       </font>
      </property>
      <property name="text">
-      <string>0</string>
+      <string>0.0</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -482,7 +482,7 @@
       </font>
      </property>
      <property name="text">
-      <string>0</string>
+      <string>0.0</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -920,6 +920,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkf5">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -938,6 +941,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkf3">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -956,6 +962,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkf1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -972,8 +981,14 @@
      <property name="text">
       <string>Ver Función 1</string>
      </property>
+     <property name="checkable">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QCheckBox" name="checkf4">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -992,6 +1007,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkf2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1032,6 +1050,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -1050,6 +1071,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -1068,6 +1092,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp3">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -1086,6 +1113,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp4">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -1104,6 +1134,9 @@
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp5">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>160</x>
