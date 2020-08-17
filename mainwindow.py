@@ -71,6 +71,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         # Clickeables
         self.saveamp.clicked.connect(self.saveAmplitudePlot)
         self.savephase.clicked.connect(self.savePhasePlot)
+        self.resetview.clicked.connect(self.resetView)
         self.checkf1.clicked.connect(self.updatePlots)
         self.checkf2.clicked.connect(self.updatePlots)
         self.checkf3.clicked.connect(self.updatePlots)
@@ -81,8 +82,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.checkp3.clicked.connect(self.updatePlots)
         self.checkp4.clicked.connect(self.updatePlots)
         self.checkp5.clicked.connect(self.updatePlots)
-        #self.xlabeledit.textChanged.connect(self.updatePlots)
-        #self.ylabeledit.textChanged.connect(self.updatePlots)
+
+    # Plot configurations
+        self.updatebtn.clicked.connect(self.updatePlots)
 
     # Amplitude Plot
         self.figure1 = Figure()
@@ -239,16 +241,24 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         msg.setText("Gráfico exportado con el nombre: "+ filename+"_fase"+str(index)+".png")
         x = msg.exec_()'''
 
-    def saveFullPlot(self):
+    def resetView(self):
         # TO-DO
         return
 
     def updatePlots(self):
-        self.axes1.plot([0, 1], [1, 2])
-        self.axes1.set_xlabel('f (log) [Hz]')
-        self.canvas1.draw()
+        self.axes1.set_xlabel(self.editaxlabel.text())
+        self.axes1.set_ylabel(self.editaylabel.text())
+        self.axes1.set_title(self.edittitle.text())
+        self.axes1.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
+        self.axes1.set_ylim(float(self.aymin.text()), float(self.aymax.text()))
+        self.axes2.set_xlabel(self.editfxlabel.text())
+        self.axes2.set_ylabel(self.editfylabel.text())
+        self.axes2.set_title(self.edittitle.text())
+        self.axes2.set_xlim(float(self.fxmin.text()), float(self.fxmax.text()))
+        self.axes2.set_ylim(float(self.fymin.text()), float(self.fymax.text()))
         # TO-DO
-        return
+        self.canvas1.draw()
+        self.canvas2.draw()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication([])

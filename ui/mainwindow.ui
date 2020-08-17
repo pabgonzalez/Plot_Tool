@@ -834,9 +834,9 @@
     <widget class="QPushButton" name="saveamp">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>70</y>
-       <width>81</width>
+       <x>300</x>
+       <y>40</y>
+       <width>151</width>
        <height>31</height>
       </rect>
      </property>
@@ -852,7 +852,7 @@
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Amplitud</string>
+      <string>Exportar Amplitud</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -867,9 +867,9 @@
     <widget class="QPushButton" name="savephase">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>110</y>
-       <width>81</width>
+       <x>300</x>
+       <y>80</y>
+       <width>151</width>
        <height>31</height>
       </rect>
      </property>
@@ -885,7 +885,7 @@
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>Fase</string>
+      <string>Exportar Fase</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>
@@ -900,9 +900,9 @@
     <widget class="QLabel" name="exportlabel">
      <property name="geometry">
       <rect>
-       <x>370</x>
+       <x>300</x>
        <y>10</y>
-       <width>81</width>
+       <width>61</width>
        <height>21</height>
       </rect>
      </property>
@@ -913,7 +913,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Exportar</string>
+      <string>Archivo:</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1014,7 +1014,7 @@
       <rect>
        <x>150</x>
        <y>30</y>
-       <width>31</width>
+       <width>51</width>
        <height>21</height>
       </rect>
      </property>
@@ -1025,13 +1025,16 @@
       </font>
      </property>
      <property name="text">
-      <string>Pts</string>
+      <string>Puntos</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkp1">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>170</x>
        <y>50</y>
        <width>16</width>
        <height>23</height>
@@ -1049,7 +1052,7 @@
     <widget class="QCheckBox" name="checkp2">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>170</x>
        <y>70</y>
        <width>16</width>
        <height>23</height>
@@ -1067,7 +1070,7 @@
     <widget class="QCheckBox" name="checkp3">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>170</x>
        <y>90</y>
        <width>16</width>
        <height>23</height>
@@ -1085,7 +1088,7 @@
     <widget class="QCheckBox" name="checkp4">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>170</x>
        <y>110</y>
        <width>16</width>
        <height>23</height>
@@ -1103,7 +1106,7 @@
     <widget class="QCheckBox" name="checkp5">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>170</x>
        <y>130</y>
        <width>16</width>
        <height>23</height>
@@ -1121,7 +1124,7 @@
     <widget class="QLabel" name="originlabel">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>210</x>
        <y>30</y>
        <width>71</width>
        <height>21</height>
@@ -1143,7 +1146,7 @@
     <widget class="QLabel" name="origin1">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>210</x>
        <y>50</y>
        <width>71</width>
        <height>16</height>
@@ -1164,7 +1167,7 @@
     <widget class="QLabel" name="origin2">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>210</x>
        <y>70</y>
        <width>71</width>
        <height>16</height>
@@ -1185,7 +1188,7 @@
     <widget class="QLabel" name="origin3">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>210</x>
        <y>90</y>
        <width>71</width>
        <height>16</height>
@@ -1206,7 +1209,7 @@
     <widget class="QLabel" name="origin4">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>210</x>
        <y>110</y>
        <width>71</width>
        <height>16</height>
@@ -1227,7 +1230,7 @@
     <widget class="QLabel" name="origin5">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>210</x>
        <y>130</y>
        <width>71</width>
        <height>16</height>
@@ -1249,7 +1252,7 @@
      <property name="geometry">
       <rect>
        <x>370</x>
-       <y>40</y>
+       <y>10</y>
        <width>81</width>
        <height>20</height>
       </rect>
@@ -1265,6 +1268,39 @@
      </property>
      <property name="placeholderText">
       <string>filename</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="resetview">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>120</y>
+       <width>151</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(235, 235, 235);
+ border-style: solid;
+ border-width:5px;
+ border-color: rgb(220, 220, 220);</string>
+     </property>
+     <property name="text">
+      <string>Reset</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
