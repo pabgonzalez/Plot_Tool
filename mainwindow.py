@@ -69,22 +69,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.viewPoints = (False, False, False, False, False)
 
         # Clickeables
-        self.saveamp.clicked.connect(self.saveAmplitudePlot)
-        self.savephase.clicked.connect(self.savePhasePlot)
         self.updatebtn1.clicked.connect(self.updatePlots)
-        '''self.checkf1.clicked.connect(self.updatePlots)
-        self.checkf2.clicked.connect(self.updatePlots)
-        self.checkf3.clicked.connect(self.updatePlots)
-        self.checkf4.clicked.connect(self.updatePlots)
-        self.checkf5.clicked.connect(self.updatePlots)
-        self.checkp1.clicked.connect(self.updatePlots)
-        self.checkp2.clicked.connect(self.updatePlots)
-        self.checkp3.clicked.connect(self.updatePlots)
-        self.checkp4.clicked.connect(self.updatePlots)
-        self.checkp5.clicked.connect(self.updatePlots)
-        self.nogrid.clicked.connect(self.updatePlots)
-        self.simplegrid.clicked.connect(self.updatePlots)
-        self.fullgrid.clicked.connect(self.updatePlots)'''
 
     # Plot configurations
         self.axmin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
@@ -94,7 +79,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.fymin.setValidator(QtGui.QIntValidator(-1000, 1000, self))
         self.fymax.setValidator(QtGui.QIntValidator(-1000, 1000, self))
         self.updatebtn2.clicked.connect(self.updatePlots)
-        self.resetview.clicked.connect(self.resetView)
 
     # Amplitude Plot
         self.figure1 = Figure()
@@ -293,34 +277,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.origin5.setText(self.functionList[4].origin)
 
     ###Frame Plots
-    def saveAmplitudePlot(self):
-        index = 0
-        filename = self.filenameedit.text()
-        while os.path.exists(filename + "_amplitud" + str(index) + ".png"):
-            index += 1
-        self.figure2.savefig(filename + "_amplitud" + str(index) + ".png")
-        msg = QMessageBox()
-        msg.setWindowTitle("Confirmación")
-        msg.setIcon(QMessageBox.Information)
-        msg.setText("Gráfico exportado con el nombre: " + filename + "_amplitud" + str(index) + ".png")
-        x = msg.exec_()
-
-    def savePhasePlot(self):
-        index = 0
-        filename = self.filenameedit.text()
-        while os.path.exists(filename+"_fase"+str(index)+".png"):
-            index += 1
-        self.figure2.savefig(filename+"_fase"+str(index)+".png")
-        msg = QMessageBox()
-        msg.setWindowTitle("Confirmación")
-        msg.setIcon(QMessageBox.Information)
-        msg.setText("Gráfico exportado con el nombre: "+ filename+"_fase"+str(index)+".png")
-        x = msg.exec_()
-
-    def resetView(self):
-        #TO-DO
-        return
-
     def updatePlots(self):
         self.axes1.clear()
         self.axes2.clear()
