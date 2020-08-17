@@ -300,7 +300,7 @@
      <rect>
       <x>230</x>
       <y>10</y>
-      <width>571</width>
+      <width>661</width>
       <height>161</height>
      </rect>
     </property>
@@ -340,7 +340,7 @@
       <rect>
        <x>310</x>
        <y>90</y>
-       <width>251</width>
+       <width>341</width>
        <height>20</height>
       </rect>
      </property>
@@ -359,7 +359,7 @@
       <rect>
        <x>315</x>
        <y>66</y>
-       <width>241</width>
+       <width>331</width>
        <height>31</height>
       </rect>
      </property>
@@ -471,7 +471,7 @@
       <rect>
        <x>315</x>
        <y>106</y>
-       <width>241</width>
+       <width>331</width>
        <height>31</height>
       </rect>
      </property>
@@ -493,7 +493,7 @@
       <rect>
        <x>310</x>
        <y>10</y>
-       <width>171</width>
+       <width>261</width>
        <height>31</height>
       </rect>
      </property>
@@ -524,7 +524,7 @@
     <widget class="QPushButton" name="eraseequation">
      <property name="geometry">
       <rect>
-       <x>490</x>
+       <x>580</x>
        <y>10</y>
        <width>71</width>
        <height>31</height>
@@ -797,9 +797,9 @@
    <widget class="QFrame" name="frameplotconfig">
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>900</x>
       <y>10</y>
-      <width>461</width>
+      <width>371</width>
       <height>161</height>
      </rect>
     </property>
@@ -1308,186 +1308,6 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QLabel" name="axrangelabel">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>10</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>Rango frec.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="fymin">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>130</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="text">
-      <string>-200</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="aymin">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>80</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="text">
-      <string>1e-6</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="aymax">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>80</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="text">
-      <string>1e6</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="fymax">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>130</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="text">
-      <string>200</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="axmax">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>30</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="text">
-      <string>1e6</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="fyrangelabel">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>110</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>Rango fase</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="ayrangelabel">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>60</y>
-       <width>81</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <underline>false</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>Rango amp.</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="axmin">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>30</y>
-       <width>41</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="inputMethodHints">
-      <set>Qt::ImhFormattedNumbersOnly</set>
-     </property>
-     <property name="text">
-      <string>1e0</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="frameplot">
     <property name="geometry">
@@ -1529,7 +1349,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>152</y>
+        <y>322</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1545,7 +1365,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>102</y>
+        <y>272</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1561,7 +1381,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>180</y>
+        <y>350</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1583,7 +1403,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>130</y>
+        <y>300</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1605,7 +1425,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>80</y>
+        <y>250</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1627,7 +1447,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>252</y>
+        <y>422</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1643,7 +1463,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>202</y>
+        <y>372</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1659,7 +1479,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>230</y>
+        <y>400</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1681,7 +1501,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>30</y>
+        <y>200</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1703,7 +1523,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>52</y>
+        <y>222</y>
         <width>81</width>
         <height>20</height>
        </rect>
@@ -1719,7 +1539,7 @@
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>290</y>
+        <y>460</y>
         <width>81</width>
         <height>31</height>
        </rect>
@@ -1748,23 +1568,220 @@
        <bool>false</bool>
       </property>
      </widget>
-     <widget class="QLabel" name="exportlabel_2">
+     <widget class="QLineEdit" name="fymin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>70</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>-200</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="aymin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1e-6</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="aymax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>20</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1e6</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="fymax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>70</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>200</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="fyrangelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Rango fase</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ayrangelabel">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>0</y>
         <width>81</width>
-        <height>21</height>
+        <height>20</height>
        </rect>
       </property>
       <property name="font">
        <font>
-        <pointsize>12</pointsize>
-        <underline>true</underline>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
        </font>
       </property>
       <property name="text">
-       <string>Labels</string>
+       <string>Rango amp.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="checkhertz">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>150</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Hertz</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="axmax">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>120</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1e6</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="axrangelabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>100</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <underline>false</underline>
+       </font>
+      </property>
+      <property name="text">
+       <string>Rango frec.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="checkrad">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>81</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Rad / seg</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="axmin">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhFormattedNumbersOnly</set>
+      </property>
+      <property name="text">
+       <string>1e0</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>

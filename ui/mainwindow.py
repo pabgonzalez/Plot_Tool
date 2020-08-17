@@ -700,6 +700,7 @@ class Ui_PlotTool(object):
 
 if __name__ == "__main__":
     import sys
+    QtGui.QApplication.setAttribute(QtCore.Qt.AA_Use96Dpi)
     app = QtWidgets.QApplication(sys.argv)
     PlotTool = QtWidgets.QMainWindow()
     ui = Ui_PlotTool()
