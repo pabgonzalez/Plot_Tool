@@ -325,7 +325,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         x = msg.exec_()
 
     def resetView(self):
-        self.updatePlots(reset=True)
+        #TO-DO
+        return
 
     def updatePlots(self):
         self.axes1.clear()
