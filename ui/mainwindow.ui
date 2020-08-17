@@ -1437,29 +1437,7 @@
     <property name="lineWidth">
      <number>3</number>
     </property>
-    <widget class="QStackedWidget" name="ampplot">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>561</width>
-       <height>491</height>
-      </rect>
-     </property>
-     <widget class="QWidget" name="ampplotPage1"/>
-    </widget>
-    <widget class="QStackedWidget" name="phaseplot">
-     <property name="geometry">
-      <rect>
-       <x>580</x>
-       <y>10</y>
-       <width>561</width>
-       <height>491</height>
-      </rect>
-     </property>
-     <widget class="QWidget" name="phaseplotPage1"/>
-    </widget>
-    <widget class="QFrame" name="frame">
+    <widget class="QFrame" name="frameplotsetup">
      <property name="geometry">
       <rect>
        <x>1160</x>
@@ -1913,6 +1891,28 @@
        <bool>false</bool>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>561</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="amplayout"/>
+    </widget>
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>10</y>
+       <width>561</width>
+       <height>491</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="phaselayout"/>
     </widget>
    </widget>
    <zorder>frametransfer</zorder>
