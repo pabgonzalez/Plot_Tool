@@ -1397,7 +1397,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>0</string>
+       <string>1</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1470,7 +1470,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>0</string>
+       <string>1</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1533,7 +1533,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>100</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1596,7 +1596,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>180</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1637,7 +1637,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>1e6</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1672,7 +1672,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1</string>
+       <string>1e6</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1707,7 +1707,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>0</string>
+       <string>-180</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1726,7 +1726,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>0</string>
+       <string>-100</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1786,7 +1786,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>f [Hz]</string>
+       <string/>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
