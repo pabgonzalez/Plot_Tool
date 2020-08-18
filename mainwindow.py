@@ -2,7 +2,7 @@ from ui.mainwindow import *
 import numpy as np
 import sys
 import os
-from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox, QRadioButton, QInputDialog
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication, QWidget, QPushButton, QAction, QLineEdit, QMessageBox, QRadioButton, QInputDialog
 from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
@@ -14,6 +14,7 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
 from TFunction import TFunction
+import bodeparsers as parser
 from PyQt5 import QtGui, QtWidgets
 
 class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
@@ -74,8 +75,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
     # Plot configurations
         self.axmin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
         self.axmax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
-        self.aymin.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
-        self.aymax.setValidator(QtGui.QDoubleValidator(1e-16, 1e20, 8, self))
+        self.aymin.setValidator(QtGui.QDoubleValidator(-10000, 1e20, 8, self))
+        self.aymax.setValidator(QtGui.QDoubleValidator(-10000, 1e20, 8, self))
         self.fymin.setValidator(QtGui.QIntValidator(-1000, 1000, self))
         self.fymax.setValidator(QtGui.QIntValidator(-1000, 1000, self))
         self.updatebtn2.clicked.connect(self.updatePlots)
@@ -88,7 +89,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.amplayout.addWidget(self.canvas1)
 
         self.axes1.set_xscale('log')
-        self.axes1.set_yscale('log')
 
     # Phase Plot
         self.figure2 = Figure()
@@ -108,13 +108,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
     ###Frame Import Function
 
     def importSpice(self):
-        #TO-DO
+        filepath = QFileDialog.getOpenFileName(self, 'Open file',
+                                            'c:\\', "Text files (*.txt)")[0]
+        if filepath != "":
+            freq, abs_val, phase = parser.spice_parser(filepath)
+            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')
+            self.functionList[self.selectedTransferFunction].setParsedTF(abs_val, phase, freq, "Spice", name)
 
-        self.origin1.setText(self.functionList[0].origin)
-        self.origin2.setText(self.functionList[1].origin)
-        self.origin3.setText(self.functionList[2].origin)
-        self.origin4.setText(self.functionList[3].origin)
-        self.origin5.setText(self.functionList[4].origin)
+            self.updateEquationList()
+            self.checkf1.setChecked(True if self.transferf1.isChecked() else self.checkf1.isChecked())
+            self.checkf2.setChecked(True if self.transferf2.isChecked() else self.checkf2.isChecked())
+            self.checkf3.setChecked(True if self.transferf3.isChecked() else self.checkf3.isChecked())
+            self.checkf4.setChecked(True if self.transferf4.isChecked() else self.checkf4.isChecked())
+            self.checkf5.setChecked(True if self.transferf5.isChecked() else self.checkf5.isChecked())
+            self.updatePlots()
 
     def importDigilent(self):
         # TO-DO
@@ -126,13 +133,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.origin5.setText(self.functionList[4].origin)
 
     def importCSV(self):
-        # TO-DO
+        filepath = QFileDialog.getOpenFileName(self, 'Open file',
+                                               'c:\\', "(*.txt, *.csv)")[0]
 
-        self.origin1.setText(self.functionList[0].origin)
-        self.origin2.setText(self.functionList[1].origin)
-        self.origin3.setText(self.functionList[2].origin)
-        self.origin4.setText(self.functionList[3].origin)
-        self.origin5.setText(self.functionList[4].origin)
+        if filepath != "":
+            freq, abs_val, phase = parser.csv_parser(filepath)
+            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')
+            self.functionList[self.selectedTransferFunction].setParsedTF(abs_val, phase, freq, "CSV", name)
+
+            self.updateEquationList()
+            self.checkf1.setChecked(True if self.transferf1.isChecked() else self.checkf1.isChecked())
+            self.checkf2.setChecked(True if self.transferf2.isChecked() else self.checkf2.isChecked())
+            self.checkf3.setChecked(True if self.transferf3.isChecked() else self.checkf3.isChecked())
+            self.checkf4.setChecked(True if self.transferf4.isChecked() else self.checkf4.isChecked())
+            self.checkf5.setChecked(True if self.transferf5.isChecked() else self.checkf5.isChecked())
+            self.updatePlots()
 
     def selectImportFunction(self, x):
         self.importf1.setChecked( x==0 )
@@ -140,6 +155,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.importf3.setChecked( x==2 )
         self.importf4.setChecked( x==3 )
         self.importf5.setChecked( x==4 )
+        self.selectedTransferFunction = x
 
     ###Frame Transfer Function
 
@@ -291,14 +307,18 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
                     Bode = signal.bode(H, x)
                     freq = Bode[0] / (2 * np.pi)
                     markerstyle = 'D' if pview[i] else ""
-                    self.axes1.loglog(freq, Bode[1], label=str(f.name), marker=markerstyle)
+                    self.axes1.semilogx(freq, Bode[1], label=str(f.name), marker=markerstyle)
                     self.axes2.semilogx(freq, Bode[2], label=str(f.name), marker=markerstyle)
                 if f.origin == "Spice":
-                    pass
+                    markerstyle = 'D' if pview[i] else ""
+                    self.axes1.semilogx(f.parse_freq, f.parse_abs, label=str(f.name), marker=markerstyle)
+                    self.axes2.semilogx(f.parse_freq, f.parse_phase, label=str(f.name), marker=markerstyle)
                 if f.origin == "Digilent":
                     pass
                 if f.origin == "CSV":
-                    pass
+                    markerstyle = 'D' if pview[i] else ""
+                    self.axes1.semilogx(f.parse_freq, f.parse_abs, label=str(f.name), marker=markerstyle)
+                    self.axes2.semilogx(f.parse_freq, f.parse_phase, label=str(f.name), marker=markerstyle)
 
         '''if reset:
             left, right = self.axes1.xlim()
