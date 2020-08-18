@@ -113,7 +113,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         if os.path.exists(filepath):
             try:
                 freq, abs_val, phase = parser.spice_parser(filepath)
-                name = QInputDialog.getText(self, 'Importar mediciones', 'Nombre de la función:')
+                name = QInputDialog.getText(self, 'Importar mediciones', 'Nombre de la función:')[0]
                 self.functionList[self.selectedImportFunction].setParsedTF(abs_val, phase, freq, "Spice", name)
 
                 self.updateEquationList()
@@ -145,7 +145,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         if os.path.exists(filepath):
             try:
                 freq, abs_val, phase = parser.csv_parser(filepath)
-                name = QInputDialog.getText(self, 'Importar mediciones', 'Nombre de la función:')
+                name = QInputDialog.getText(self, 'Importar mediciones', 'Nombre de la función:')[0]
                 self.functionList[self.selectedImportFunction].setParsedTF(abs_val, phase, freq, "CSV", name)
 
                 self.updateEquationList()
@@ -255,7 +255,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
                 nonzero = True
 
         if nonzero:
-            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')
+            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')[0]
             if len(name) < 1:
                 name = "Función " + str(index+1)
             self.functionList[index].setEquation(self.numerator, self.denominator, name)
