@@ -6,8 +6,7 @@ class TFunction():
         self.name = "Función"
         self.num = [0]
         self.den = [0]
-        self.data = 0
-        # datos tomados de los parsers
+        # Datos obtenidos de los parsers
         self.parse_abs = []
         self.parse_phase = []
         self.parse_freq = []

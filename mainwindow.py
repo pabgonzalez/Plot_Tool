@@ -7,7 +7,7 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtCore import pyqtSlot
 
 import scipy.signal as signal
-from numpy import linspace, logspace, cos, sin, heaviside, log10, floor, zeros, ones
+from numpy import linspace, logspace, cos, sin, heaviside, log10, floor, zeros, ones, pi
 
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
@@ -110,18 +110,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
     def importSpice(self):
         filepath = QFileDialog.getOpenFileName(self, 'Open file',
                                             'c:\\', "Text files (*.txt)")[0]
-        if filepath != "":
-            freq, abs_val, phase = parser.spice_parser(filepath)
-            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')
-            self.functionList[self.selectedTransferFunction].setParsedTF(abs_val, phase, freq, "Spice", name)
+        if os.path.exists(filepath):
+            try:
+                freq, abs_val, phase = parser.spice_parser(filepath)
+                name = QInputDialog.getText(self, 'Importar mediciones', 'Nombre de la función:')
+                self.functionList[self.selectedImportFunction].setParsedTF(abs_val, phase, freq, "Spice", name)
 
-            self.updateEquationList()
-            self.checkf1.setChecked(True if self.transferf1.isChecked() else self.checkf1.isChecked())
-            self.checkf2.setChecked(True if self.transferf2.isChecked() else self.checkf2.isChecked())
-            self.checkf3.setChecked(True if self.transferf3.isChecked() else self.checkf3.isChecked())
-            self.checkf4.setChecked(True if self.transferf4.isChecked() else self.checkf4.isChecked())
-            self.checkf5.setChecked(True if self.transferf5.isChecked() else self.checkf5.isChecked())
-            self.updatePlots()
+                self.updateEquationList()
+                self.checkf1.setChecked(True if self.importf1.isChecked() else self.checkf1.isChecked())
+                self.checkf2.setChecked(True if self.importf2.isChecked() else self.checkf2.isChecked())
+                self.checkf3.setChecked(True if self.importf3.isChecked() else self.checkf3.isChecked())
+                self.checkf4.setChecked(True if self.importf4.isChecked() else self.checkf4.isChecked())
+                self.checkf5.setChecked(True if self.importf5.isChecked() else self.checkf5.isChecked())
+                self.updatePlots()
+            except:
+                msgBox = QMessageBox()
+                msgBox.setIcon(QMessageBox.Critical)
+                msgBox.setText("Error crítico importando datos! Asegurarse que todas las líneas excepto la primera contengan los datos frecuencia, amplitud y fase.")
+                msgBox.setWindowTitle("Error")
+                x = msgBox.exec()
 
     def importDigilent(self):
         # TO-DO
@@ -135,19 +142,25 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
     def importCSV(self):
         filepath = QFileDialog.getOpenFileName(self, 'Open file',
                                                'c:\\', "(*.txt, *.csv)")[0]
+        if os.path.exists(filepath):
+            try:
+                freq, abs_val, phase = parser.csv_parser(filepath)
+                name = QInputDialog.getText(self, 'Importar mediciones', 'Nombre de la función:')
+                self.functionList[self.selectedImportFunction].setParsedTF(abs_val, phase, freq, "CSV", name)
 
-        if filepath != "":
-            freq, abs_val, phase = parser.csv_parser(filepath)
-            name = QInputDialog.getText(self, 'Crear función', 'Nombre de la función:')
-            self.functionList[self.selectedTransferFunction].setParsedTF(abs_val, phase, freq, "CSV", name)
-
-            self.updateEquationList()
-            self.checkf1.setChecked(True if self.transferf1.isChecked() else self.checkf1.isChecked())
-            self.checkf2.setChecked(True if self.transferf2.isChecked() else self.checkf2.isChecked())
-            self.checkf3.setChecked(True if self.transferf3.isChecked() else self.checkf3.isChecked())
-            self.checkf4.setChecked(True if self.transferf4.isChecked() else self.checkf4.isChecked())
-            self.checkf5.setChecked(True if self.transferf5.isChecked() else self.checkf5.isChecked())
-            self.updatePlots()
+                self.updateEquationList()
+                self.checkf1.setChecked(True if self.importf1.isChecked() else self.checkf1.isChecked())
+                self.checkf2.setChecked(True if self.importf2.isChecked() else self.checkf2.isChecked())
+                self.checkf3.setChecked(True if self.importf3.isChecked() else self.checkf3.isChecked())
+                self.checkf4.setChecked(True if self.importf4.isChecked() else self.checkf4.isChecked())
+                self.checkf5.setChecked(True if self.importf5.isChecked() else self.checkf5.isChecked())
+                self.updatePlots()
+            except:
+                msgBox = QMessageBox()
+                msgBox.setIcon(QMessageBox.Critical)
+                msgBox.setText("Error crítico importando datos! Asegurarse que todas las líneas excepto la primera contengan los datos frecuencia, amplitud y fase.")
+                msgBox.setWindowTitle("Error")
+                x = msgBox.exec()
 
     def selectImportFunction(self, x):
         self.importf1.setChecked( x==0 )
@@ -155,7 +168,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         self.importf3.setChecked( x==2 )
         self.importf4.setChecked( x==3 )
         self.importf5.setChecked( x==4 )
-        self.selectedTransferFunction = x
+        self.selectedImportFunction = x
 
     ###Frame Transfer Function
 
@@ -303,37 +316,27 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
                 f = self.functionList[i]
                 if f.origin == "Ecuación":
                     H = signal.TransferFunction(f.num[::-1], f.den[::-1])
-                    x = logspace(floor(log10(float(self.axmin.text()))), floor(log10(float(self.axmax.text()))), num=1000)
+                    lowerfreq = float(self.axmin.text())*2*pi if self.checkhertz.isChecked() else float(self.axmin.text())
+                    higherfreq = float(self.axmax.text())*2*pi if self.checkhertz.isChecked() else float(self.axmax.text())
+                    x = logspace((log10(lowerfreq)), (log10(higherfreq)), num=1000)
                     Bode = signal.bode(H, x)
-                    freq = Bode[0] / (2 * np.pi)
+                    freq = Bode[0] / (2 * pi) if self.checkhertz.isChecked() else Bode[0]
                     markerstyle = 'D' if pview[i] else ""
                     self.axes1.semilogx(freq, Bode[1], label=str(f.name), marker=markerstyle)
                     self.axes2.semilogx(freq, Bode[2], label=str(f.name), marker=markerstyle)
                 if f.origin == "Spice":
                     markerstyle = 'D' if pview[i] else ""
-                    self.axes1.semilogx(f.parse_freq, f.parse_abs, label=str(f.name), marker=markerstyle)
-                    self.axes2.semilogx(f.parse_freq, f.parse_phase, label=str(f.name), marker=markerstyle)
+                    frequency = f.parse_freq if self.checkhertz.isChecked() else [x*2*pi for x in f.parse_freq]
+                    self.axes1.semilogx(frequency, f.parse_abs, label=str(f.name), marker=markerstyle)
+                    self.axes2.semilogx(frequency, f.parse_phase, label=str(f.name), marker=markerstyle)
                 if f.origin == "Digilent":
                     pass
                 if f.origin == "CSV":
                     markerstyle = 'D' if pview[i] else ""
-                    self.axes1.semilogx(f.parse_freq, f.parse_abs, label=str(f.name), marker=markerstyle)
-                    self.axes2.semilogx(f.parse_freq, f.parse_phase, label=str(f.name), marker=markerstyle)
+                    frequency = f.parse_freq if self.checkhertz.isChecked() else [x*2*pi for x in f.parse_freq]
+                    self.axes1.semilogx(frequency, f.parse_abs, label=str(f.name), marker=markerstyle)
+                    self.axes2.semilogx(frequency, f.parse_phase, label=str(f.name), marker=markerstyle)
 
-        '''if reset:
-            left, right = self.axes1.xlim()
-            self.axmin.setText(str(left))
-            self.axmax.setText(str(right))
-            left, right = self.axes1.ylim()
-            self.aymin.setText(str(left))
-            self.aymax.setText(str(right))
-            left, right = self.axes2.xlim()
-            self.fxmin.setText(str(left))
-            self.fxmax.setText(str(right))
-            left, right = self.axes2.ylim()
-            self.fymin.setText(str(left))
-            self.fymax.setText(str(right))
-        else:'''
         self.axes1.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
         self.axes1.set_ylim(float(self.aymin.text()), float(self.aymax.text()))
         self.axes2.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
@@ -357,6 +360,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
 
         self.axes1.legend()
         self.axes2.legend()
+        self.figure1.tight_layout()
+        self.figure2.tight_layout()
         self.canvas1.draw()
         self.canvas2.draw()
 

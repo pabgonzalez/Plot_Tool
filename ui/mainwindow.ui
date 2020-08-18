@@ -1211,7 +1211,7 @@
       <string>Nada</string>
      </property>
      <property name="checked">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
     </widget>
     <widget class="QRadioButton" name="simplegrid">
@@ -1251,6 +1251,9 @@
      </property>
      <property name="text">
       <string>Completa</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="originlabel_2">
@@ -1355,7 +1358,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>| H(s) |</string>
+       <string>|H(s)| dB</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1600,7 +1603,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1e-6</string>
+       <string>-200</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -1619,7 +1622,7 @@
        <set>Qt::ImhFormattedNumbersOnly</set>
       </property>
       <property name="text">
-       <string>1e6</string>
+       <string>200</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
