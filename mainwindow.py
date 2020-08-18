@@ -322,20 +322,20 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
                     Bode = signal.bode(H, x)
                     freq = Bode[0] / (2 * pi) if self.checkhertz.isChecked() else Bode[0]
                     markerstyle = 'D' if pview[i] else ""
-                    self.axes1.semilogx(freq, Bode[1], label=str(f.name), marker=markerstyle)
-                    self.axes2.semilogx(freq, Bode[2], label=str(f.name), marker=markerstyle)
+                    self.axes1.semilogx(freq, Bode[1], label=f.name[0], marker=markerstyle)
+                    self.axes2.semilogx(freq, Bode[2], label=f.name[0], marker=markerstyle)
                 if f.origin == "Spice":
                     markerstyle = 'D' if pview[i] else ""
                     frequency = f.parse_freq if self.checkhertz.isChecked() else [x*2*pi for x in f.parse_freq]
-                    self.axes1.semilogx(frequency, f.parse_abs, label=str(f.name), marker=markerstyle)
-                    self.axes2.semilogx(frequency, f.parse_phase, label=str(f.name), marker=markerstyle)
+                    self.axes1.semilogx(frequency, f.parse_abs, label=f.name[0], marker=markerstyle)
+                    self.axes2.semilogx(frequency, f.parse_phase, label=f.name[0], marker=markerstyle)
                 if f.origin == "Digilent":
                     pass
                 if f.origin == "CSV":
                     markerstyle = 'D' if pview[i] else ""
                     frequency = f.parse_freq if self.checkhertz.isChecked() else [x*2*pi for x in f.parse_freq]
-                    self.axes1.semilogx(frequency, f.parse_abs, label=str(f.name), marker=markerstyle)
-                    self.axes2.semilogx(frequency, f.parse_phase, label=str(f.name), marker=markerstyle)
+                    self.axes1.semilogx(frequency, f.parse_abs, label=f.name[0], marker=markerstyle)
+                    self.axes2.semilogx(frequency, f.parse_phase, label=f.name[0], marker=markerstyle)
 
         self.axes1.set_xlim(float(self.axmin.text()), float(self.axmax.text()))
         self.axes1.set_ylim(float(self.aymin.text()), float(self.aymax.text()))
