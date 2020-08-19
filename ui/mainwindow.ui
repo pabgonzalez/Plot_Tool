@@ -91,7 +91,7 @@
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>40</y>
+       <y>50</y>
        <width>81</width>
        <height>31</height>
       </rect>
@@ -174,46 +174,13 @@
       <bool>false</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="digilentbtn">
-     <property name="geometry">
-      <rect>
-       <x>120</x>
-       <y>80</y>
-       <width>81</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(235, 235, 235);
- border-style: solid;
- border-width:5px;
- border-color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>Digilent</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-     <property name="default">
-      <bool>false</bool>
-     </property>
-     <property name="flat">
-      <bool>false</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="probebtn">
      <property name="geometry">
       <rect>
        <x>120</x>
-       <y>120</y>
+       <y>90</y>
        <width>81</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -228,7 +195,8 @@
  border-color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>CSV</string>
+      <string>Scope
+CSV</string>
      </property>
      <property name="autoDefault">
       <bool>false</bool>

@@ -31,7 +31,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
 
         # Clickeables
         self.spicebtn.clicked.connect(self.importSpice)
-        self.digilentbtn.clicked.connect(self.importDigilent)
         self.probebtn.clicked.connect(self.importCSV)
         self.importf1.clicked.connect(lambda: self.selectImportFunction(0))
         self.importf2.clicked.connect(lambda: self.selectImportFunction(1))
@@ -126,18 +125,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
             except:
                 msgBox = QMessageBox()
                 msgBox.setIcon(QMessageBox.Critical)
-                msgBox.setText("Error crítico importando datos! Asegurarse que todas las líneas excepto la primera contengan los datos frecuencia, amplitud y fase.")
+                msgBox.setText("Error crítico importando datos! Asegurarse que todas las líneas luego del encabezado contengan al menos 3 números separados por coma o espacio.")
                 msgBox.setWindowTitle("Error")
                 x = msgBox.exec()
-
-    def importDigilent(self):
-        # TO-DO
-
-        self.origin1.setText(self.functionList[0].origin)
-        self.origin2.setText(self.functionList[1].origin)
-        self.origin3.setText(self.functionList[2].origin)
-        self.origin4.setText(self.functionList[3].origin)
-        self.origin5.setText(self.functionList[4].origin)
+                x = msgBox.exec()
 
     def importCSV(self):
         filepath = QFileDialog.getOpenFileName(self, 'Open file',
@@ -158,7 +149,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
             except:
                 msgBox = QMessageBox()
                 msgBox.setIcon(QMessageBox.Critical)
-                msgBox.setText("Error crítico importando datos! Asegurarse que todas las líneas excepto la primera contengan los datos frecuencia, amplitud y fase.")
+                msgBox.setText("Error crítico importando datos! Asegurarse que todas las líneas luego del encabezado contengan al menos 3 números separados por coma o espacio.")
                 msgBox.setWindowTitle("Error")
                 x = msgBox.exec()
 
@@ -224,12 +215,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
         font = QtGui.QFont()
         font.setFamily("Cambria Math")
         font.setPointSize(10)
-        if len(self.numlabel.text()) >= 40:
-            font.setPointSize(13 - len(self.numlabel.text())//8)
+        if len(self.numlabel.text()) >= 52:
+            font.setPointSize(13 - len(self.numlabel.text()) // 10)
         self.numlabel.setFont(font)
         font.setPointSize(10)
-        if len(self.denlabel.text()) >= 40:
-            font.setPointSize(13 - len(self.denlabel.text()) // 8)
+        if len(self.denlabel.text()) >= 52:
+            font.setPointSize(13 - len(self.denlabel.text()) // 10)
         self.denlabel.setFont(font)
 
     def exponentString(self, x):
@@ -329,8 +320,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_PlotTool):
                     frequency = f.parse_freq if self.checkhertz.isChecked() else [x*2*pi for x in f.parse_freq]
                     self.axes1.semilogx(frequency, f.parse_abs, label=f.name, marker=markerstyle)
                     self.axes2.semilogx(frequency, f.parse_phase, label=f.name, marker=markerstyle)
-                if f.origin == "Digilent":
-                    pass
                 if f.origin == "CSV":
                     markerstyle = 'D' if pview[i] else ""
                     frequency = f.parse_freq if self.checkhertz.isChecked() else [x*2*pi for x in f.parse_freq]
