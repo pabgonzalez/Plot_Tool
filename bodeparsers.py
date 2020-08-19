@@ -24,6 +24,8 @@ def spice_parser(filepath):
 def csv_parser(filepath):
     with open(filepath, 'r') as tf:
         lines = list(tf)
+        while "\n" in lines:
+            lines.remove("\n")
         firstword = lines[0].replace(',', ' ').split()[0]
         numeric = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', ',', '-', '+', 'e', 'E'}
         while set(firstword).issubset(numeric) == False:
