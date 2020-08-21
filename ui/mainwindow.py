@@ -624,7 +624,7 @@ class Ui_PlotTool(object):
 
     def retranslateUi(self, PlotTool):
         _translate = QtCore.QCoreApplication.translate
-        PlotTool.setWindowTitle(_translate("PlotTool", "MainWindow"))
+        PlotTool.setWindowTitle(_translate("PlotTool", "Plot Tool"))
         self.importlabel.setText(_translate("PlotTool", "Importar Datos"))
         self.importf1.setText(_translate("PlotTool", "Función 1"))
         self.spicebtn.setText(_translate("PlotTool", "SPICE"))
